@@ -33,20 +33,20 @@ function counterReducer(pState = 0, action) {
 // store
 // single source of truth
 // needs reducer to infer state type
-const store = createStore(counterReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(counterReducer);
 
 // React
 // display net score
 // state comes from redux
-class ScoreBoard extends React.Component {
-	render() {
-    	return (
-    	  <div>
-    	  <h1>{this.props.count}</h1>
-    	  </div>
-    	);
-	}
+// component is thus stateless
+const ScoreBoard = (props) =>  {
+    return (
+      <div>
+      <h1>{props.count}</h1>
+      </div>
+    );
 }
+
 
 // controller
 // displays + and - clicks
